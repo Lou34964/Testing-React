@@ -1,7 +1,8 @@
 import React from 'react';
 import {render, fireEvent, wait, findAllByTestId} from '@testing-library/react';
 import StarWarsCharacters from "./StarWarsCharacters";
-import {getData as mockGetData} from '../api'
+import {getData as mockGetData} from '../api';
+import "@testing-library/jest-dom";
 
 jest.mock("../api")
 
@@ -34,5 +35,5 @@ test('buttons fire and and call correct functions', async () =>{
   fireEvent.click(prevButton);
   expect(mockGetData).toHaveBeenCalledTimes(1);
 
-  wait(() => expect(getByText(/'Darth'/i)));
+  wait(() => expect(getByText(/'Darth'/i)).toBeInDocument());
 })

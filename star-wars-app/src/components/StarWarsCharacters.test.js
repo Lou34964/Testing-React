@@ -35,5 +35,5 @@ test('buttons fire and and call correct functions', async () =>{
   fireEvent.click(prevButton);
   expect(mockGetData).toHaveBeenCalledTimes(1);
 
-  wait(() => expect(getByText(/'Darth'/i)).toBeInDocument());
+  await wait(() => expect(getByText(/Luke/i)));
 })
